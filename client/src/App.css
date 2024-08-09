@@ -1,0 +1,401 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #232627;
+  padding-top: 80px; /* Height of the navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: fixed; /* Make navbar fixed */
+  top: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin: 10px 20px;
+  font-size: 25px;
+  padding: 10px;
+  transition: color 0.3s, transform 0.3s;
+  position: relative;
+  outline: none; /* Remove default button outline */
+  background: none; /* Ensure no background for button */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Ensure it has a pointer cursor */
+}
+
+.nav-link:hover {
+  color: #ff6347;
+  transform: scale(1.1);
+  box-shadow: none;
+}
+
+.nav-link:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6347;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+
+
+/* Active Link Styling */
+.active {
+  color: #ff6347;
+  font-weight: bold;
+}
+
+.active:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Other styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* App Container */
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Save Button Styles */
+.save-button {
+  background-color: #404635; /* some type of background color that i like*/
+  color: white;
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Adjust padding for button size */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+  font-size: 1rem; /* Adjust text size */
+  outline: none; /* Remove default button outline */
+}
+
+.save-button:hover {
+  background-color: #f82d09; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+.save-button:disabled {
+  background-color: #6c757d; /* Disabled button color */
+  cursor: not-allowed; /* Not-allowed cursor on disabled button */
+}
+
+
+/* Auth Page Styles */
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #232627;
+  padding-top: 20px; /* Add padding to avoid overlap with navbar */
+  gap: 40px; /* Add space between the forms */
+  width: 100vw; /* Ensure the container takes full width */
+  max-width: 100vw; /* Ensure no constraint on the container's width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.auth-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 50px; /* Increased padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 100%; /* Take full width of the parent container */
+  max-width: 600px; /* Increased max-width */
+}
+
+.auth-container h2 {
+  margin-bottom: 30px; /* Increased margin-bottom */
+  color: #333;
+  text-align: center;
+  font-size: 2.5rem; /* Increased font size */
+}
+
+.form-group {
+  margin-bottom: 25px; /* Increased margin-bottom */
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10px; /* Increased margin-bottom */
+  font-size: 1.5rem; /* Increased font size */
+}
+
+.form-input {
+  width: 100%;
+  padding: 20px; /* Increased padding */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1.5rem; /* Increased font size */
+}
+
+.auth-button {
+  background-color: #404635;
+  color: white;
+  border: none;
+  padding: 20px 30px; /* Increased padding */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1.5rem; /* Increased font size */
+  width: 100%;
+  margin-top: 20px; /* Increased margin-top */
+}
+
+.auth-button:hover {
+  background-color: #ff6347;
+  transform: scale(1.05);
+}
+
+.toggle-auth p {
+  color: #333;
+  font-size: 1.2rem; /* Increased font size */
+}
+
+/* Create Recipe Styles */
+.create-recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 400px;
+}
+
+.create-recipe form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Recipe Card Styles */
+.recipe-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: flex-start; /* Align items to the left */
+}
+
+.recipe-card {
+  background-color: #decece;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 20px); /* Adjust to fit four cards per row, taking margin into account */
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem; /* Adjust to make the text bigger */
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.recipe-card p {
+  color: #666;
+  font-size: 1rem; /* Adjust to make the text bigger */
+}
+
+.recipe-card .instructions {
+  margin: 10px 0;
+  font-size: 1rem; /* Adjust to make the text bigger */
+}
+
+/* Button Styles */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem; /* Adjust to make the text bigger */
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Home Page Styles */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.container h1 {
+  text-align: center;
+  color: #f14242;
+  margin-top: 20px;
+  font-size: 2rem; /* Adjust to make the text bigger */
+}
+
+.instructions {
+  margin: 10px 0;
+  font-size: 1rem; /* Adjust to make the text bigger */
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .recipe-card {
+      width: calc(33.333% - 20px); /* Adjust to fit three cards per row */
+  }
+}
+
+@media (max-width: 900px) {
+  .recipe-card {
+      width: calc(50% - 20px); /* Adjust to fit two cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .recipe-card {
+      width: calc(100% - 20px); /* Adjust to fit one card per row */
+  }
+}
+
+/* Create Recipe Styles */
+.create-recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 60px auto 20px auto; /* Add margin-top to create space from the navbar */
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.create-recipe-container h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.create-recipe-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.create-recipe-form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-input,
+.form-textarea {
+  width: calc(100% - 20px); /* Adjust width to fit within the form */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.form-textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.add-ingredient-button,
+.create-recipe-button {
+  background-color:  #404635;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.add-ingredient-button:hover,
+.create-recipe-button:hover {
+  background-color: #ff6347;
+  transform: scale(1.05);
+}
+
+
+
