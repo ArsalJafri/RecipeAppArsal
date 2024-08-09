@@ -1,3 +1,4 @@
+//index.js which is inside my src folder which is in my server folder
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -18,4 +19,3 @@ mongoose.connect(process.env.MONGODB_URI);
 
 // Serverless handler
 export const handler = serverless(app);
-
