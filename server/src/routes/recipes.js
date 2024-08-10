@@ -38,13 +38,13 @@ router.put("/", verifyToken, async (req, res) => {
             console.error("Recipe or User not found");
             return res.status(404).json({ message: "Recipe or User not found" });
         }
-
+ 
         user.savedRecipes.push(recipe._id); // Push only the ID
         await user.save();
 
         res.json({ savedRecipes: user.savedRecipes });
     } catch (err) {
-        console.error("Error during saveRecipe PUT request:", err);
+        console.error("Error during PUT request:", err);
         res.status(500).json({ error: err.message });
     }
 });

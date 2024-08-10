@@ -3,6 +3,7 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../component/Navbar";
+import { apiUrl } from "../hooks/axiosSimple";
 
 export const Auth = ({ setFormType }) => {
   const [isLogin, setIsLogin] = useState(false); // Default to Register
@@ -20,12 +21,12 @@ export const Auth = ({ setFormType }) => {
   useEffect(() => {
     setUsername("");
     setPassword("");
-  }, [isLogin]);
+  }, [isLogin]); 
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/auth/login", { username, password });
+      const response = await axios.post(`${apiUrl}/auth/login`, { username, password });
       setCookies("access_token", response.data.token);
       window.localStorage.setItem("userID", response.data.userID);
       navigate("/");
@@ -37,7 +38,7 @@ export const Auth = ({ setFormType }) => {
   const handleRegister = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/auth/register", { username, password });
+      await axios.post(`${apiUrl}/auth/register`, { username, password });
       setIsLogin(true); // Switch to the login form after successful registration
       setUsername(""); // Clear the username field
       setPassword(""); // Clear the password field
