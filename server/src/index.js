@@ -12,9 +12,9 @@ app.use(cors());
 app.use("/auth", userRouter)
 app.use("/recipes", recipesRouter)
 
-mongoose.connect(
-    "mongodb+srv://arsaljafri:oOw7nWZQMpKw9yJu@recipes.xunazaf.mongodb.net/recipes?retryWrites=true&w=majority",
-)
+
+mongoose.connect("mongodb+srv://arsaljafri:oOw7nWZQMpKw9yJu@recipes.xunazaf.mongodb.net/recipes?retryWrites=true&w=majority",
+);
 
 app.listen(3001, () => console.log("SERVER STARTED!"))
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
-import { apiUrl } from "../hooks/axiosSimple";
+
 
 export const SavedRecipes = () => {
 
@@ -12,7 +12,7 @@ export const SavedRecipes = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl}/recipes/savedRecipes/${userID}`
+          `http://localhost:3001/recipes/savedRecipes/${userID}`
         );
         setSavedRecipe(response.data);
       } catch (err) {
@@ -26,7 +26,7 @@ export const SavedRecipes = () => {
   const deleteRecipe = async (recipeID) => {
     try {
         await axios.delete(
-            `${apiUrl}/recipes/savedRecipes/${userID}/${recipeID}`
+            `http://localhost:3001/recipes/savedRecipes/${userID}/${recipeID}`
         );
         // Remove recipe from local state
         setSavedRecipe(prev => prev.filter(recipe => recipe._id !== recipeID));
