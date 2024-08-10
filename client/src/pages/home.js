@@ -47,7 +47,7 @@ export const Home = () => {
                 {
                 recipeID, 
                 userID
-             },
+             }, 
              {headers: {authorization: cookies.access_token}}
             )
             setSavedRecipes(response.data.savedRecipes)

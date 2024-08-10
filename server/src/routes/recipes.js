@@ -44,7 +44,7 @@ router.put("/", verifyToken, async (req, res) => {
 
         res.json({ savedRecipes: user.savedRecipes });
     } catch (err) {
-        console.error("Error during saveRecipe PUT request:", err);
+        console.error("Error during PUT request:", err);
         res.status(500).json({ error: err.message });
     }
 });

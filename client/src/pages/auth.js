@@ -21,7 +21,7 @@ export const Auth = ({ setFormType }) => {
   useEffect(() => {
     setUsername("");
     setPassword("");
-  }, [isLogin]);
+  }, [isLogin]); 
 
   const handleLogin = async (event) => {
     event.preventDefault();
