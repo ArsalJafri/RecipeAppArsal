@@ -1,9 +1,6 @@
-//index.js which is inside my src folder which is in my server folder
-
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import serverless from 'serverless-http';
 import { userRouter } from './routes/user.js';
 import { recipesRouter } from './routes/recipes.js';
 import dotenv from 'dotenv';
@@ -21,9 +18,13 @@ app.use("/recipes", recipesRouter);
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
-// Serverless handler
-export const handler = serverless(app);
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
