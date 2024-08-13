@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +17,13 @@ export const CreateRecipe = () => {
     });
     const [cookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (recipe.imageUrl) {
+            const img = new Image();
+            img.src = recipe.imageUrl;
+        }
+    }, [recipe.imageUrl]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
